@@ -170,4 +170,5 @@ Mensaje de salida en el terminal:
 
 ## REFERENCIAS 
 - colaboradores de Wikipedia. (2025, 15 enero). Java Database connectivity. Wikipedia, la Enciclopedia Libre. https://es.wikipedia.org/wiki/Java_Database_Connectivity
-- 
+- https://stackoverflow.com/questions/3077059/how-can-i-connect-to-a-mysql-database-using-scala
+- https://alexn.org/blog/2020/11/15/managing-database-migrations-scala/
