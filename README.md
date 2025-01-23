@@ -87,9 +87,15 @@ Bueno una tabla de resumen seria la siguiente:
 |-----------------|------------------------------|-----------------------------------------------------------------------------------------------|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **JDBC**        | Orientado a objetos, bajo nivel | Uso directo de sentencias SQL y objetos `Connection`, `Statement`, `ResultSet`                  | No                               | Conexión directa a bases de datos relacionales. Control completo sobre la ejecución de SQL, pero manejo explícito de errores y recursos.                    |
 | **Slick**       | Funcional, alto nivel         | API funcional y de tipos, permite crear consultas SQL de manera declarativa y escalable         | No                               | Proporciona un modelo de consultas funcional, manejo de transacciones y mapeo de resultados. Mejor integración con el estilo funcional de Scala.            |
-| **Doobie**      | Funcional, monádico           | Basado en `cats` y `doobie` para construir consultas SQL de manera funcional                    | Sí (usando `IO`)                 | Proporciona un enfoque monádico para trabajar con la base de datos. Aísla los efectos secundarios mediante el uso de `IO` y `Transactor`.                    |
+| **Doobie**      | Funcional, monádico           | Basado en `cats` y `doobie` para construir consultas SQL de manera funcional                    | Sí (usando `IO`)                 | 
 
+## Conexión a una base de datos relacional (mysql)
+Proporciona un enfoque monádico para trabajar con la base de datos. Aísla los efectos secundarios mediante el uso de `IO` y `Transactor`.                    |
 
+### Genere una base de datos en mysql
+### Genere una tabla con datos de prueba
+### Conexión a la base datos
+### Consultas de todos los datos de la tabla de prueba. 
 
 
 ## REFERENCIAS 
