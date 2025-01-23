@@ -92,8 +92,23 @@ Bueno una tabla de resumen seria la siguiente:
 ## Conexión a una base de datos relacional (mysql)
 Proporciona un enfoque monádico para trabajar con la base de datos. Aísla los efectos secundarios mediante el uso de `IO` y `Transactor`.                    |
 
-### Genere una base de datos en mysql
-### Genere una tabla con datos de prueba
+### Genere una base de datos en mysql  
+Configuraremos una base de datos llamada `datosEjemplos` en MySQL.  
+
+![image](https://github.com/user-attachments/assets/d59aabf7-be43-4254-8090-dddb765a0476)
+
+### Genere una tabla con datos de prueba  
+
+Creamos la tabla `users`:  
+
+![image](https://github.com/user-attachments/assets/1a5d9b72-aa9d-49a9-a755-8d678ef08dfb)
+
+Insertaremos algunos registros en la tabla `users` para realizar consultas:  
+
+![image](https://github.com/user-attachments/assets/2113ac07-293e-48fd-ae33-61ec49d315ca)
+
+
+
 ### Conexión a la base datos SCALA
 
 **Paso 1: Agregar dependencias a build.sbt**  
