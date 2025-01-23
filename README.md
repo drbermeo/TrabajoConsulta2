@@ -107,6 +107,9 @@ Insertaremos algunos registros en la tabla `users` para realizar consultas:
 
 ![image](https://github.com/user-attachments/assets/2113ac07-293e-48fd-ae33-61ec49d315ca)
 
+Mostrar el contenido de la tabla creada:  
+
+![image](https://github.com/user-attachments/assets/41c56581-a754-4ffa-88ec-34662e3e4d56)
 
 
 ### Conexión a la base datos SCALA
