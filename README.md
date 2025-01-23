@@ -161,6 +161,11 @@ object MySQLConnection {
   }
 }
 ```
+Mensaje de salida en el terminal:
+
+![image](https://github.com/user-attachments/assets/dd85f693-7aed-4a94-90d1-3a3250567daf)  
+
+
 
 
 ## REFERENCIAS 
