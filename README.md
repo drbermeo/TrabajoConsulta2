@@ -14,17 +14,75 @@ Este proyecto demuestra cómo establecer una conexión a una base de datos MySQL
 - **ResultSet**: Contiene los resultados de la consulta. Es donde se almacenan los datos obtenidos de una consulta. Permite acceder a los resultados y recorrer los datos fila por fila.
 - **SQLException**: Maneja excepciones relacionadas con la base de datos. Es una clase que maneja errores relacionados con la base de datos, como problemas de conexión o errores en las consultas SQL.
 
-Más detalles sobre JDBC pueden consultarse en [Turing](https://www.turing.com/kb/what-is-jdbc) y [Tokio School](https://www.tokioschool.com/noticias/jdbc/).
+# Librerías de Scala para Conectarse a una Base de Datos Relacional
 
-## Librerías de Scala para conectarse a una base de datos relacional
+En Scala, existen varias librerías y frameworks que permiten conectarse a bases de datos relacionales. A continuación, se detallan algunas de las más populares:
 
-| Característica            | Slick                             | Doobie                           |
-|---------------------------|-----------------------------------|----------------------------------|
-| Estilo                    | Funcional + DSL SQL               | Funcional (basado en cats)       |
-| Conexión a la base de datos | Proporciona su propio pool de conexiones | Usa un pool externo (HikariCP)  |
-| Abstracción SQL            | Alto nivel, pero con acceso a SQL nativo | Acceso más directo a SQL        |
-| Gestión de transacciones   | Soporte completo                  | Totalmente transaccional        |
-| Integración con Scala      | Muy integrado en el ecosistema Scala | Requiere más configuración      |
+## 1. JDBC (Java Database Connectivity)
+
+Scala es completamente compatible con Java, por lo que se puede utilizar JDBC para conectarse a bases de datos relacionales. Aunque no es específico de Scala, JDBC es una opción robusta y ampliamente utilizada.
+
+### Ejemplo básico de JDBC:
+```scala
+import java.sql._
+
+val conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mi_base", "usuario", "contraseña")
+val stmt = conn.createStatement()
+val rs = stmt.executeQuery("SELECT * FROM tabla")
+
+while (rs.next()) {
+  println(rs.getString("columna"))
+}
+
+conn.close()
+```
+
+## 2.  Slick
+
+Slick es una librería de Scala que proporciona una interfaz funcional y escalable para interactuar con bases de datos relacionales. Es más elegante que JDBC y facilita la consulta y manipulación de datos utilizando una API de alto nivel.
+
+### Ejemplo básico de JDBC:
+
+```scala
+import slick.jdbc.MySQLProfile.api._
+
+val db = Database.forConfig("mydb")
+val query = TableQuery[MiTabla]
+
+val action = query.result
+val result = db.run(action)
+
+result.map { rows =>
+  rows.foreach(println)
+}
+```
+
+## 3. Doobie
+
+Doobie es una librería funcional para trabajar con bases de datos SQL en Scala. Está basada en el paradigma funcional y permite la ejecución de consultas SQL dentro de un contexto monádico.
+
+```scala 
+### Ejemplo básico de JDBC:
+import doobie._
+import doobie.implicits._
+import cats.effect.IO
+
+val xa = Transactor.fromDriverManager[IO](
+  "com.mysql.cj.jdbc.Driver", 
+  "jdbc:mysql://localhost:3306/mi_base", 
+  "usuario", 
+  "contraseña"
+)
+
+val query = sql"SELECT * FROM tabla".query[String]
+val result = query.to[List].transact(xa).unsafeRunSync()
+
+result.foreach(println)
+
+```
+
+
+
 ## REFERENCIAS 
 - colaboradores de Wikipedia. (2025, 15 enero). Java Database connectivity. Wikipedia, la Enciclopedia Libre. https://es.wikipedia.org/wiki/Java_Database_Connectivity
 - 
