@@ -94,7 +94,13 @@ Proporciona un enfoque monádico para trabajar con la base de datos. Aísla los 
 
 ### Genere una base de datos en mysql
 ### Genere una tabla con datos de prueba
-### Conexión a la base datos
+### Conexión a la base datos SCALA
+
+**Paso 1: Agregar dependencias a build.sbt**  
+
+![image](https://github.com/user-attachments/assets/4bfcdb74-439a-4ac7-97a3-cbc63c8522d8)
+
+
 ### Consultas de todos los datos de la tabla de prueba. 
 
 
