@@ -100,6 +100,8 @@ Proporciona un enfoque monádico para trabajar con la base de datos. Aísla los 
 
 ![image](https://github.com/user-attachments/assets/4bfcdb74-439a-4ac7-97a3-cbc63c8522d8)
 
+**Paso 2: Conectar a la base de datos en Scala**  
+
 
 ### Consultas de todos los datos de la tabla de prueba. 
 
