@@ -118,10 +118,49 @@ Mostrar el contenido de la tabla creada:
 
 ![image](https://github.com/user-attachments/assets/4bfcdb74-439a-4ac7-97a3-cbc63c8522d8)
 
-**Paso 2: Conectar a la base de datos en Scala**  
+**Paso 2: Conectar a la base de datos en Scala y Consultas**  
 
+```scala
+import java.sql.{Connection, DriverManager}
 
-### Consultas de todos los datos de la tabla de prueba. 
+object MySQLConnection {
+  def main(args: Array[String]): Unit = {
+    // Datos de conexión
+    val url = "jdbc:mysql://localhost:3306/datosejemplos"  // Cambia el nombre de la base de datos
+    val user = "root"  // Cambia tu usuario
+    val password = "drbermeo"  // Cambia tu contraseña
+
+    // Establecer conexión
+    var connection: Connection = null
+
+    try {
+      // Registrar el driver MySQL
+      Class.forName("com.mysql.cj.jdbc.Driver")
+
+      // Establecer conexión
+      connection = DriverManager.getConnection(url, user, password)
+
+      println("Conexión exitosa a la base de datos MySQL")
+
+      // Consultar todos los usuarios
+      val statement = connection.createStatement()
+      val resultSet = statement.executeQuery("SELECT * FROM users")
+
+      // Mostrar los resultados
+      while (resultSet.next()) {
+        println(s"ID: ${resultSet.getInt("id")}, Nombre: ${resultSet.getString("nombre")}, Email: ${resultSet.getString("email")}")
+      }
+    } catch {
+      case e: Exception => e.printStackTrace()
+    } finally {
+      if (connection != null) {
+        connection.close()
+        println("Conexión cerrada")
+      }
+    }
+  }
+}
+```
 
 
 ## REFERENCIAS 
